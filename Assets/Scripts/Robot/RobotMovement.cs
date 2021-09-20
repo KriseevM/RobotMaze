@@ -51,19 +51,11 @@ public class RobotMovement : MonoBehaviour
         _tween.OnComplete(EndMovment);
     }
 
-    private void Start()
-    {
-
-        //MoveForward();
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             EndMovment();
-            //  Debug.Log("1");
-            // MoveForward();
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
