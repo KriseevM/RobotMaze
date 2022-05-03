@@ -5,6 +5,12 @@ public class RecursiveMazeGenerator
 {
     public int RowCount { get; }
     public int ColumnCount { get; }
+
+    public MazeCell[,] Maze
+    {
+        get => _maze;
+    }
+
     public int GoalCount;
     private MazeCell[,] _maze;
 

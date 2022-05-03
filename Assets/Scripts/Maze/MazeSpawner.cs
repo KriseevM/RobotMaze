@@ -50,8 +50,11 @@ public class MazeSpawner : MonoBehaviour
     private List<GameObject> _walls = new List<GameObject>();
     private List<GameObject> _levels = new List<GameObject>();
     private Dictionary<GameObject, List<GameObject>> _bakingLayers = new Dictionary<GameObject, List<GameObject>>();
-
+    
+    
     private RecursiveMazeGenerator _mazeGenerator = null;
+
+    public RecursiveMazeGenerator MazeGenerator => _mazeGenerator;
 
     private GameObject InstantiatePartOfMaze(GameObject gameObject, Vector3 position, Quaternion quaternion, Transform parent)
     {

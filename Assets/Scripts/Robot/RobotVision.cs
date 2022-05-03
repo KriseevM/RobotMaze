@@ -1,29 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class RobotVision : MonoBehaviour
 {
-    [SerializeField] private Receptor _rightReceptor, _forwardReceptor;
-    [SerializeField] private UnityEvent _rightReceptorNotActive, _forwardReceptorNotActive, _allReceptorsActive;
+    public bool[] _receptorStates;
+    private Receptor[] _receptors;
+
+    public bool[] ReceptorStates => _receptorStates;
+
+    public void Reset()
+    {
+        _receptors = GetComponentsInChildren<Receptor>();
+        _receptorStates = new bool[_receptors.Length];
+    }
 
     public void CheckReceptors()
     {
-        if (_rightReceptor.Active == false)
+        for (int i = 0; i < _receptors.Length; ++i)
         {
-            Debug.Log("Right");
-            _rightReceptorNotActive?.Invoke();
-        }
-        else if (_forwardReceptor.Active == false)
-        {
-            Debug.Log("Forward");
-            _forwardReceptorNotActive?.Invoke();
-        }
-        else
-        {
-            Debug.Log("All");
-            _allReceptorsActive?.Invoke();
+            _receptorStates[i] = _receptors[i].Active;
         }
     }
 }

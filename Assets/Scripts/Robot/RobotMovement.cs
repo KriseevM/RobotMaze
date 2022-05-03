@@ -43,7 +43,12 @@ public class RobotMovement : MonoBehaviour
         _tween = transform.DORotate(_rotateVector, 0.2f, RotateMode.Fast);
         _tween.OnComplete(MoveForward);
     }
-
+    public void RotateOnLeftAndMoveForward()
+    {
+        _rotateVector += new Vector3(0, -90, 0);
+        _tween = transform.DORotate(_rotateVector, 0.2f, RotateMode.Fast);
+        _tween.OnComplete(MoveForward);
+    }
     public void MoveForward()
     {
         _forwardVector += transform.right * 12;
